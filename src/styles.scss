@@ -126,5 +126,13 @@ table {
 
 * {
   box-sizing: border-box;
+  color: white;
+  font-family: "Roboto", sans-serif;
 }
 
+a {
+  text-decoration: none;
+  :visited {
+    color: inherit;
+  }
+}
