@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { GroupsModule } from './pages/groups/groups.module';
 import { HomeModule } from './pages/home/home.module';
 import { SharedModule } from './shared/shared.module';
+import { CreateGroupModule } from './pages/create-group/create-group.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,6 +17,7 @@ import { SharedModule } from './shared/shared.module';
     HomeModule,
     HttpClientModule,
     GroupsModule,
+    CreateGroupModule
   ],
   providers: [],
   bootstrap: [AppComponent],

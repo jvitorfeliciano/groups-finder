@@ -2,9 +2,7 @@
   <section *ngIf="loading; else content">Loading...</section>
   <ng-template #content>
     <h1>
-      {{
-        groups.length === 0 ? "No groups found!" : "Groups found"
-      }}
+      {{ groups.length === 0 ? "No groups found!" : "Groups found" }}
     </h1>
     <section class="groups-container">
       <app-group *ngFor="let group of groups" [group]="group"></app-group>

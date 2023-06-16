@@ -1,0 +1,26 @@
+<main>
+  <form [formGroup]="groupForm" (ngSubmit)="onSubmit()">
+    <h1>Create your group!</h1>
+    <div>
+      <label for="name">Name</label>
+      <input
+        id="name"
+        type="text"
+        placeholder="Name"
+        formControlName="name"
+        required
+      />
+    </div>
+    <div>
+      <label for="description">Description</label>
+      <input
+        id="description"
+        type="text"
+        placeholder="Description"
+        formControlName="description"
+        required
+      />
+    </div>
+    <app-button [buttonStatus]="!groupForm.valid">Save</app-button>
+  </form>
+</main>

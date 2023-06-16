@@ -30,3 +30,8 @@ button {
   margin-top: 10px;
   margin-right: 10px;
 }
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
