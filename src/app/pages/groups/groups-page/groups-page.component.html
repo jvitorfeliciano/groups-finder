@@ -1,23 +1,9 @@
 <main>
-  <h1>Grupos Encontrados</h1>
-  <section class="groups-container">
-    <app-group></app-group>
-    <app-group></app-group>
-    <app-group></app-group>
-    <app-group></app-group>
-    <app-group></app-group>
-    <app-group></app-group>
-    <app-group></app-group>
-    <app-group></app-group>
-    <app-group></app-group>
-    <app-group></app-group>
-    <app-group></app-group>
-    <app-group></app-group>
-    <app-group></app-group>
-    <app-group></app-group>
-    <app-group></app-group>
-    <app-group></app-group>
-    <app-group></app-group>
-    <app-group></app-group>
-  </section>
+  <section *ngIf="loading; else groupsContent">Loading...</section>
+  <ng-template #groupsContent>
+    <h1>Grupos Encontrados</h1>
+    <section class="groups-container">
+      <app-group *ngFor="let group of groups" [group]="group"></app-group>
+    </section>
+  </ng-template>
 </main>

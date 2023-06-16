@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
+import { Group } from '../models/groups';
 
 @Injectable({
   providedIn: 'root',
@@ -12,6 +13,8 @@ export class GroupsService {
   constructor(private http: HttpClient) {}
 
   getGroups(latitude: number, longitude: number): Observable<any> {
-    return this.http.get(`${this.BASE_URL_API}/${latitude}/${longitude}`);
+    return this.http.get<Group[]>(
+      `${this.BASE_URL_API}/groups/${latitude}/${longitude}`
+    );
   }
 }

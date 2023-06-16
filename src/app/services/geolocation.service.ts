@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class GeolocationService {
-  private locationCoordinates: object = {};
+  private locationCoordinates: GeolocationPosition;
 
   constructor() {}
 
