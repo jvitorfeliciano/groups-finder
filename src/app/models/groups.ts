@@ -1,9 +1,12 @@
 interface Group {
   id: number;
   name: string;
+  link: string;
   description: string;
   latitude: number;
   longitude: number;
 }
 
-export { Group }
+type GroupCreationModel = Omit<Group, 'id'>;
+
+export { Group, GroupCreationModel };

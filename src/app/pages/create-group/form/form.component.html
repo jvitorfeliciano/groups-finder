@@ -3,13 +3,7 @@
     <h1>Create your group!</h1>
     <div>
       <label for="name">Name</label>
-      <input
-        id="name"
-        type="text"
-        placeholder="Name"
-        formControlName="name"
-        required
-      />
+      <input id="name" type="text" placeholder="Name" formControlName="name" />
     </div>
     <div>
       <label for="description">Description</label>
@@ -18,7 +12,16 @@
         type="text"
         placeholder="Description"
         formControlName="description"
-        required
+      />
+    </div>
+    <div>
+      <label for="link">Link</label>
+      <input
+        id="link"
+        type="text"
+        placeholder="Link"
+        formControlName="link"
+
       />
     </div>
     <app-button [buttonStatus]="!groupForm.valid">Save</app-button>

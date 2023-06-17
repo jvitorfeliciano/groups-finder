@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
-import { Group } from '../models/groups';
+import { Group, GroupCreationModel } from '../models/groups';
 
 @Injectable({
   providedIn: 'root',
@@ -12,9 +12,13 @@ export class GroupsService {
 
   constructor(private http: HttpClient) {}
 
-  getGroups(latitude: number, longitude: number): Observable<any> {
+  get(latitude: number, longitude: number): Observable<Group[]> {
     return this.http.get<Group[]>(
-      `${this.BASE_URL_API}/groups/${latitude}/${longitude}`
+      `${this.BASE_URL_API}/${latitude}/${longitude}`
     );
+  }
+
+  create(body: GroupCreationModel): Observable<GroupCreationModel> {
+    return this.http.post<GroupCreationModel>(this.BASE_URL_API, body);
   }
 }

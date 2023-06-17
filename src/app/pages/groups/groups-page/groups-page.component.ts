@@ -21,7 +21,7 @@ export class GroupsPageComponent implements OnInit {
   ngOnInit(): void {
     this.locationCoordinates = this.geolocationService.getLocationCoordinates();
     this.groupsService
-      .getGroups(
+      .get(
         this.locationCoordinates.coords.latitude,
         this.locationCoordinates.coords.longitude
       )
