@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit, SimpleChanges } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Group } from 'src/app/models/groups';
-import { GeolocationService } from 'src/app/services/geolocation.service';
 import { GroupsService } from 'src/app/services/groups.service';
 
 @Component({
@@ -11,30 +11,29 @@ import { GroupsService } from 'src/app/services/groups.service';
 export class GroupsPageComponent implements OnInit {
   groups: Group[];
   loading: boolean = true;
-  locationCoordinates: GeolocationPosition;
+  subscription: Subscription;
+  constructor(private groupsService: GroupsService) {}
 
-  constructor(
-    private geolocationService: GeolocationService,
-    private groupsService: GroupsService
-  ) {}
+  async ngOnInit() {
+    navigator.geolocation.getCurrentPosition(this.getGroups);
+  }
 
-  ngOnInit(): void {
-    this.locationCoordinates = this.geolocationService.getLocationCoordinates();
+  error = (error: GeolocationPositionError) => console.log(error);
+
+  getGroups = (position: GeolocationPosition) => {
+    console.log(position.coords.latitude, position.coords.longitude);
     this.groupsService
-      .get(
-        this.locationCoordinates.coords.latitude,
-        this.locationCoordinates.coords.longitude
-      )
+      .get(position.coords.latitude, position.coords.longitude)
       .subscribe({
         next: (res) => {
           this.groups = res;
           this.loading = false;
-          console.log(this.groups)
+          console.log(this.groups);
         },
         error: (err) => {
           this.loading = false;
           console.log(err);
         },
       });
-  }
+  };
 }

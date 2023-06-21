@@ -1,17 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { GeolocationService } from './services/geolocation.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'groups-finder';
-
-  constructor(private goelocationService: GeolocationService) {}
-
-  ngOnInit(): void {
-    this.goelocationService.getCurrentPosition();
-  }
+  count: number = 1;
 }

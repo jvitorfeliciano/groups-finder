@@ -17,7 +17,7 @@ import { CreateGroupModule } from './pages/create-group/create-group.module';
     HomeModule,
     HttpClientModule,
     GroupsModule,
-    CreateGroupModule
+    CreateGroupModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
